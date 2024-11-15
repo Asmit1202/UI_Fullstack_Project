@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-commerce Project</title>
+    <title>E-commerce Project | Login</title>
     <link rel="stylesheet" href="css/app.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="JS/app.js"></script>
@@ -31,9 +31,14 @@
                     </li>
                     <li>
                         Password <input type="password" id="lg-passWd" name="password" maxlength="8">
+                        <button onclick="showPassWord(click)"><img src="images/Password_show.jpg" width="15px" height="15px"></button>
                     </li>
                     <li>
-                        <input type="button" id="lg-btn" value="Login">
+                        <input type="checkbox" id="lg-userOpt">
+                        Rember Me  
+                    </li>
+                    <li>
+                        <input type="button" id="lg-btn" value="Login" onclick="loginDetails()">
                     </li>
                     <li>
                         <p class="fg" onclick="ForgetPassword()">Forgot Password?</p>
@@ -43,21 +48,41 @@
                 <ul class="sign-in-page">
                     <li>
                         Username <input type="text" id="sg-usrname">
+                        <span class="astric">*</span>
+                        <div class="idErr error">
+                            Username is mandatory
+                        </div>
                     </li>
                     <li>
                         Name <input type="text" id="sg-name">
+                        <span class="astric">*</span>
+                        <div class="nameErr error">
+                            Name is mandatory
+                        </div>
                     </li>
                     <li>
                         Email Address <input type="text" id="sg-mail">
+                        <span class="astric">*</span>
                     </li>
                     <li>
                         Password <input type="password" id="sg-passWd1" name="password" maxlength="8">
+                        <span class="astric">*</span>
+                        <button onclick="showPassWord1(click)"><img src="images/Password_show.jpg" width="15px" height="15px"></button>
                     </li>
                     <li>
                         Confirm Password <input type="password" id="sg-passWd2" name="confirmPassword" maxlength="8">
+                        <span class="astric">*</span>
+                        <button onclick="showPassWord2(click)"><img src="images/Password_show.jpg" width="15px" height="15px"></button>
+                        <div class="cpasswordErr error">
+                            Password don't match
+                        </div>
                     </li>
                     <li>
-                        <input type="button" id="sg-btn" value="Sign In">
+                        <input type="checkbox" id="sg-userOpt">
+                        Rember Me  
+                    </li>
+                    <li>
+                        <input type="button" id="sg-btn" value="Sign In" onclick="registerUser()">
                     </li>
                 </ul>
 

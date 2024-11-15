@@ -29,7 +29,7 @@ var loadHeader = (data) => {
     litag.append(atag);
     var a1tag = $("<a/>").text("Login").attr("href", "login.html");
     li1tag.append(a1tag);
-    var a2tag = $("<a/>").text("Products").attr("href", "product.html");
+    var a2tag = $("<a/>").text("Products").attr("href", "product.html").attr("target", "_blank");
     li2tag.append(a2tag);
     var a3tag = $("<a/>").text("About Us").attr("href", "about.html");
     li3tag.append(a3tag);
@@ -123,17 +123,105 @@ var loginPage = () => {
     document.querySelector(".sign-in-page").style.display = "none";
     document.querySelector(".Fg_password").style.display = "none";
 }
-// showLoginPageContainer = () =>{
-//     document.querySelector("login-page").style.display = "block";
 
-//     if (sign){
-//     document.querySelector("sign-in-page").style.display = "block";
+var loginDetails = () => {
+    var userData = {};
+    userData.username = document.querySelector("#lg-usrname").value;
+    userData.userPwd = document.querySelector("#lg-passWd").value;
 
-//     document.querySelector("Fg_password").style.display = "block";
-// }
+
+    if (document.querySelector("#lg-userOpt").checked){
+        localStorage.setItem("userPrefData", JSON.stringify(userData));
+    } else {
+        localStorage.setItem("userPrefData", null);
+    }
+}
+
+var registerUser = () => {
+    var userData = {};
+    userData.username = document.querySelector("#sg-usrname").value;
+    userData.username = userData.username.trim();
+    userData.name = document.querySelector("#sg-name").value;
+    userData.name = userData.name.trim();
+    userData.userPwd = document.querySelector("#sg-passWd1").value;
+    userData.cpassword = document.querySelector("#sg-passWd2").value;
+    userData.mail = document.querySelector("#sg-mail").value;
+
+    if (userData.username == ""){ 
+        document.querySelector(".idErr").style.display = "block";
+    }else{      
+        document.querySelector(".idErr").style.display = "none";
+    }
+    if (userData.name == ""){ 
+        document.querySelector(".nameErr").style.display = "block";
+    }else{      
+        document.querySelector(".nameErr").style.display = "none";
+    }
+    if (userData.cpassword != userData.userPwd){
+        document.querySelecor(".cpasswordErr").style.display = "block";
+    }
+    else{
+        document.querySelector(".cpasswordErr").style.display = "none";
+    }
+    
+    if (document.querySelector("#sg-userOpt").checked){
+        localStorage.setItem("userPrefData", JSON.stringify(userData));
+    } else {
+        localStorage.setItem("userPrefData", null);
+    }
+
+    loginPage();
+} 
+
+var showPassWord = (click) => {
+    var userData = {};
+    if(click){
+        userData.userPwd1 = $("#lg-passWd").attr("type", "text");
+    }
+    else{
+        userData.userPwd1 = $("#lg-passWd").attr("type", "password");
+    }   
+}
+var showPassWord1 = (click) => {
+    var userData = {};
+    if(click){
+        userData.userPwd2 = $("#sg-passWd1").attr("type", "text");
+    }
+    else{
+        userData.userPwd2 = $("#sg-passWd1").attr("type", "password");
+    }   
+}
+var showPassWord2 = (click) => {
+    var userData = {};
+    if(click){
+        userData.userPwd3 = $("#sg-passWd2").attr("type", "text");
+    }
+    else{
+        userData.userPwd3 = $("#sg-passWd2").attr("type", "password");
+    }   
+}
+
+
+var prefilAccountDetails = () => {
+    var userData = localStorage.getItem("userPrefData");
+    userData = JSON.parse(userData);
+    document.querySelector("#lg-usrname").value = userData.username;
+    document.querySelector("#lg-passWd").value = userData.userPwd;
+    document.querySelector("#sg-usrname").value = userData.username;
+    document.querySelector("#sg-passWd1").value = userData.userPwd;
+    document.querySelector("#sg-name").value = userData.name;
+    document.querySelector("#sg-passWd2").value = userData.cpassword;
+    document.querySelector("#sg-mail").value = userData.mail;
+
+    document.querySelector("#sg-userOpt").checked = true;
+    document.querySelector("#lg-userOpt").checked = true;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     loadHeader();
     loadFooter();
+    if (localStorage.getItem("userPrefData") != null){
+        prefilAccountDetails();
+    }
 });
 

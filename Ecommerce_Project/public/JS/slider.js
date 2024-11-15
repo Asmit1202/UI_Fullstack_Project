@@ -31,7 +31,7 @@ function currentSlide(index) {
 function startAutoplay() {
     autoplayInterval = setInterval(() => {
         changeSlide(1);
-    }, 3000);
+    }, 2000);
 }
 
 // Initialize slider when DOM is loaded

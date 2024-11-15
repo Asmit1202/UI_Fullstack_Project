@@ -42,14 +42,14 @@ body{
 .loginContainer{
     border: 1px solid #ccc;
     width: 1250px;
-    height: 500px;
+    height: 600px;
     margin: 150px auto !important;
     z-index: 4;
     position: relative;
 }
 .sign-in{
     width: 600px;
-    height: 500px;
+    height: 600px;
     background-color: rgb(199, 199, 199);
 }
 .sign-in img {
@@ -86,7 +86,7 @@ body{
 
 .login{
     width: 648px;
-    height: 500px;
+    height: 600px;
     background-color: #efefef;
     position: absolute;
     left: 600px;
@@ -144,7 +144,7 @@ body{
 .sign-in-page{
     list-style: none;
     position: absolute;
-    top: 60px;
+    top: 20px;
     left: 100px;
     z-index: 2;
     display: none;
@@ -162,13 +162,13 @@ body{
 .sign-in-page li input[type = text]{
     border-radius: 5px;
     height: 20px;
-    width: 200px;
+    width: 150px;
     margin-left: 10px;
 }
 .sign-in-page li input[type = password]{
     border-radius: 5px;
     height: 20px;
-    width: 200px;
+    width: 150px;
     margin-left: 10px;
 }
 .sign-in-page li input[type = button]{
@@ -182,6 +182,18 @@ body{
     color: #525252;
     font-size: 15px;
     font-weight: bold;
+}
+.astric{
+    color: red;
+    position: relative;
+    top: -2px;
+    left: 1px;
+}
+.error{
+    color: red;
+    font-size: 12px;
+    margin: 5px;
+    display: none;
 }
 
 .Fg_password{
@@ -368,10 +380,47 @@ body{
 
 .abt_container{
     width: 1500px;
-    margin: 100px auto;
+    margin: 80px auto;
     background-color: #fff;
     position: relative;
 }
+.abt_container1{
+    width: 700px;
+    display: flex;
+    margin: 10px auto;
+    background-color: #fff;
+    border: 0px solid;
+    position: relative;
+}
+.abt_left_container{
+    width: 250px;
+    position: relative;
+    float: left;
+    padding: 20px;
+}
+.abt_left_container img{
+    width: 200px;
+    height: 300px;
+}
+.abt_right_container{
+    width: 450px;
+    padding: 50px 0px;
+}
+.abt_right_container h3{
+    font-size: 30px;
+    text-transform: uppercase;
+    word-spacing: 8px;
+    letter-spacing: 2px;
+    background: -webkit-linear-gradient(rgb(174, 174, 174) 30%,#6b6b6b 60%  , rgb(0, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.abt_right_container span{
+    font-size: 25px;
+    background: -webkit-linear-gradient(rgb(194, 194, 194) 30%,#525252 60%  , rgb(0, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}  
 .abt_container h1{
     text-align: center;
     font-size: 40px;
@@ -397,16 +446,31 @@ body{
 
 
 .cnt_container{
-    width: 1500px;
+    width: 1700px;
     margin: 20px auto;
     background-color: #fff;
     position: relative;
+    display: flex;
 }
 .cnt_container h1{
     text-align: center;
     font-size: 30px;
     color: #757575;
     margin: 50px auto;
+    padding-left: 20px;
     text-transform: uppercase;
     letter-spacing: 1.2px;
+    display: flex;
+}
+.cnt_left_container{
+    width: 1248px;
+    height: 800px;
+}
+.cnt_right_container{
+    width: 448px;
+    height: 800px;
+    border: 1px solid;
+}
+.cnt_address li::marker{
+    text-decoration: none;
 }
